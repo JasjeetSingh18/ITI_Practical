@@ -96,3 +96,21 @@ def test_supplied_catalog_pairs():
                 ('P005', 'P015'), ('P006', 'P018'), ('P007', 'P016')]
     pairs = matcher['report'](products)[['keep_candidate', 'duplicate_candidate']]
     assert sorted(tuple(sorted(pair)) for pair in pairs.itertuples(index=False, name=None)) == expected
+    result = matcher['report'](products).set_index('group_id')
+    assert result['keeper_reason'].str.len().gt(0).all()
+    assert result.loc['P004|P017', 'keeper_reason'] == 'more populated fields'
+    assert result.loc['P006|P018', 'keeper_reason'] == 'active record preferred'
+
+
+def test_keeper_reason_for_consistency_and_id_tie():
+    reference = 'RD-1000-065-240'
+    consistent = row('B', reference, 'Round Tube 1 OD x 0.065 W x 240')
+    conflicting = row('A', reference, 'Round Tube 1 OD x 0.065 W x 288')
+    result = matcher['report'](pd.DataFrame([consistent, conflicting])).iloc[0]
+    assert result['keep_candidate'] == 'B'
+    assert result['keeper_reason'] == 'fewer conflicts between reference and description'
+
+    tied = row('A', reference, consistent['name'])
+    result = matcher['report'](pd.DataFrame([consistent, tied])).iloc[0]
+    assert result['keep_candidate'] == 'A'
+    assert result['keeper_reason'] == 'lower product ID breaks ranking tie'

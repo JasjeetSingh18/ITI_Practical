@@ -11,7 +11,7 @@ import pandas as pd
 from rapidfuzz import fuzz
 
 ROOT = Path(__file__).resolve().parent
-COLUMNS = ['group_id', 'keep_candidate', 'duplicate_candidate', 'original_ref', 'match_method', 'similarity_score', 'confidence', 'uom_conflict', 'reason', 'recommended_action']
+COLUMNS = ['group_id', 'keep_candidate', 'keeper_reason', 'duplicate_candidate', 'original_ref', 'match_method', 'similarity_score', 'confidence', 'uom_conflict', 'reason', 'recommended_action']
 NUMBER = r'(?:\d+-\d+/\d+|\d+/\d+|\d+(?:\.\d+)?)'
 
 
@@ -128,6 +128,15 @@ def report(products: pd.DataFrame, ref_threshold: float = 90, name_threshold: fl
         def rank(r: dict) -> tuple:
             return (r['active'].strip().casefold() != 'true', -sum(bool(r[k].strip()) for k in ('internal_ref', 'name', 'uom', 'category')), -consistency(r['_spec']), r['product_id'])
         keep, duplicate = sorted((a, b), key=rank)
+        keep_rank, duplicate_rank = rank(keep), rank(duplicate)
+        if keep_rank[0] != duplicate_rank[0]:
+            keeper_reason = 'active record preferred'
+        elif keep_rank[1] != duplicate_rank[1]:
+            keeper_reason = 'more populated fields'
+        elif keep_rank[2] != duplicate_rank[2]:
+            keeper_reason = 'fewer conflicts between reference and description'
+        else:
+            keeper_reason = 'lower product ID breaks ranking tie'
         reasons = []
         if equal_ref:
             reasons.append('matching normalized reference')
@@ -146,7 +155,7 @@ def report(products: pd.DataFrame, ref_threshold: float = 90, name_threshold: fl
         if not evidence:
             reasons.append('specifications incomplete or unverified')
         method = 'normalized_reference' if equal_ref else ('fuzzy_and_specifications' if fuzzy else 'specifications')
-        rows.append(dict(group_id='|'.join((a['product_id'], b['product_id'])), keep_candidate=keep['product_id'], duplicate_candidate=duplicate['product_id'], original_ref=duplicate['internal_ref'], match_method=method, similarity_score=round(max(ref_score, name_score), 2) if method == 'fuzzy_and_specifications' else '', confidence='review' if uncertain else 'high', uom_conflict=uom_conflict, reason='; '.join(reasons), recommended_action='Verify specifications and UOM before any consolidation' if uncertain else 'Verify records before consolidation'))
+        rows.append(dict(group_id='|'.join((a['product_id'], b['product_id'])), keep_candidate=keep['product_id'], keeper_reason=keeper_reason, duplicate_candidate=duplicate['product_id'], original_ref=duplicate['internal_ref'], match_method=method, similarity_score=round(max(ref_score, name_score), 2) if method == 'fuzzy_and_specifications' else '', confidence='review' if uncertain else 'high', uom_conflict=uom_conflict, reason='; '.join(reasons), recommended_action='Verify specifications and UOM before any consolidation' if uncertain else 'Verify records before consolidation'))
     return pd.DataFrame(rows, columns=COLUMNS)
 
 
