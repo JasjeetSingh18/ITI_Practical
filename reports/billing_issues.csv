@@ -1,0 +1,15 @@
+review_status,so,internal_ref,issue_type,source,record_ids,source_rows,evidence
+ordinary,S103,RC-1000-2000-065-288,quantity discrepancy,sales_orders,S103,4,"delivered=200, posted=120; delivery IDs=D203|D204; invoice IDs=I303"
+ordinary,S104,RD-1500-083-288,missing posted invoice,invoices,I304,5,draft invoice exists
+ordinary,S104,RD-1500-083-288,quantity discrepancy,sales_orders,S104,5,"delivered=150, posted=0; delivery IDs=D205; invoice IDs="
+ordinary,S105,RD-0750-049-240,quantity discrepancy,sales_orders,S105,6,"delivered=1000, posted=900; delivery IDs=D206; invoice IDs=I305"
+ordinary,S107,RD-1250-065-240-CUT-36,missing posted invoice,invoices,,,no invoice record
+ordinary,S107,RD-1250-065-240-CUT-36,quantity discrepancy,sales_orders,S107,8,"delivered=2400, posted=0; delivery IDs=D209; invoice IDs="
+ordinary,S109,SQ-1000-065-240,price discrepancy,invoices,I308,9,order price=21.1
+ordinary,S110,RD-1500-083-288,missing posted invoice,invoices,,,no invoice record
+ordinary,S110,RD-1500-083-288,quantity discrepancy,sales_orders,S110,11,"delivered=120, posted=0; delivery IDs=D213; invoice IDs="
+review,S102,SQ-1000-065-240,quantity discrepancy,sales_orders,S102,3,"delivered=300, posted=600; delivery IDs=D202; invoice IDs=I302|I309"
+review,S102,SQ-1000-065-240,suspected duplicate invoice,invoices,I302|I309,3|10,I302:2027-01-07|I309:2027-01-15
+review,S108,RD-1000-065-240,overshipment,deliveries,D210|D211,11|12,"ordered=250, delivered=500"
+review,S108,RD-1000-065-240,quantity discrepancy,sales_orders,S108,9,"delivered=500, posted=250; delivery IDs=D210|D211; invoice IDs=I307"
+review,S108,RD-1000-065-240,suspected duplicate delivery,deliveries,D210|D211,11|12,D210:2027-01-13|D211:2027-01-13

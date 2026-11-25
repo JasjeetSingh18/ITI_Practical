@@ -1,0 +1,21 @@
+product_id,internal_ref,name,uom,category,active
+P001,RD-1000-065-240,"Round Tube 1.000 OD x 0.065 W x 240""",Units,Finished Tube,True
+P002,SQ-1000-065-240,"Square Tube 1.000 x 1.000 x 0.065 x 240""",Units,Finished Tube,True
+P003,RD-1500-083-288,"Round Tube 1.500 OD x 0.083 W x 288""",Units,Finished Tube,True
+P004,RD-0750-049-240,"Round Tube 0.750 OD x 0.049 W x 240""",Units,Finished Tube,True
+P005,RC-1000-2000-065-288,"Rect Tube 1.000 x 2.000 x 0.065 x 288""",Units,Finished Tube,True
+P006,SQ-2000-120-288,"Square Tube 2.000 x 2.000 x 0.120 x 288""",Units,Finished Tube,True
+P007,COIL-1008-065-3.390,Coil 1008 0.065 x 3.390 slit,lb,Raw Material,True
+P008,COIL-1008-083-4.700,Coil 1008 0.083 x 4.700 slit,lb,Raw Material,True
+P009,RD-1250-065-240,"Round Tube 1.250 OD x 0.065 W x 240""",Units,Finished Tube,True
+P010,RD-1250-065-240-CUT-36,"Round Tube 1.250 OD x 0.065 W cut 36""",Units,Finished Tube,True
+P011,SCRAP-STEEL,Steel Scrap,lb,Scrap,True
+P012,PKG-STRAP-0.5,"Steel Strapping 1/2""",ft,Consumable,True
+P013,RD-1000-065-240 ,"Round tube 1"" OD 16ga 20ft",Units,Finished Tube,True
+P014,sq-1000-065-240,SQUARE TUBE 1X1 16GA 20FT,Units,Finished Tube,True
+P015,RC-1000-2000-065-288,Rect Tube 1 x 2 x 16ga 24ft,lb,Finished Tube,True
+P016,COIL-1008-065-3.39,Coil 16ga 3.39in slit,lb,Raw Material,True
+P017,,Round Tube 3/4 x 18ga x 20ft,Units,Finished Tube,True
+P018,SQ-2000-120-288,Square Tube 2x2 11ga 24ft,Units,Finished Tube,False
+P019,RD-1500-083-288,Round 1-1/2 x 14ga x 24ft,Units,Finished Tube,True
+P020,RD-0875-065-240,"Round Tube 0.875 OD x 0.065 W x 240""",Units,Finished Tube,True

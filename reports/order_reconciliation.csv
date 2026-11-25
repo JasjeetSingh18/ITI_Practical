@@ -1,0 +1,11 @@
+so,internal_ref,original_refs,customer,ordered_qty,order_price,delivered_qty,cancelled_qty,posted_qty,draft_qty,expected_value,posted_value,draft_value,quantity_impact,price_impact,billing_gap,review_status,flags,delivery_ids,cancelled_ids,posted_ids,draft_ids
+S101,RD-1000-065-240,RD-1000-065-240,Northfield Fitness,500,18.4,500,0,500,0,9200.0,9200.0,0,0.0,0.0,0.0,ordinary,,D201,,I301,
+S102,SQ-1000-065-240,SQ-1000-065-240,Lakeview Racking,300,21.1,300,0,600,0,6330.0,12660.0,0,6330.0,0.0,6330.0,review,quantity discrepancy|suspected duplicate or overshipment,D202,,I302|I309,
+S103,RC-1000-2000-065-288,RC-1000-2000-065-288,Brightway Furniture,200,34.5,200,0,120,0,6900.0,4140.0,0,-2760.0,0.0,-2760.0,ordinary,quantity discrepancy,D203|D204,,I303,
+S104,RD-1500-083-288,RD-1500-083-288,Northfield Fitness,150,41.0,150,0,0,150,6150.0,0,6150.0,-6150.0,0,-6150.0,ordinary,missing posted invoice|quantity discrepancy,D205,,,I304
+S105,RD-0750-049-240,RD-0750-049-240,Harbour Medical,1000,9.75,1000,0,900,0,9750.00,8775.00,0,-975.00,0.00,-975.00,ordinary,quantity discrepancy,D206,,I305,
+S106,SQ-2000-120-288,SQ-2000-120-288,Lakeview Racking,80,88.0,80,80,80,0,7040.0,7040.0,0,0.0,0.0,0.0,ordinary,,D208,D207,I306,
+S107,RD-1250-065-240-CUT-36,RD-1250-065-240-CUT-36,Brightway Furniture,2400,3.2,2400,0,0,0,7680.0,0,0,-7680.0,0,-7680.0,ordinary,missing posted invoice|quantity discrepancy,D209,,,
+S108,RD-1000-065-240,RD-1000-065-240,Harbour Medical,250,18.4,500,0,250,0,9200.0,4600.0,0,-4600.0,0.0,-4600.0,review,quantity discrepancy|overshipment|suspected duplicate or overshipment,D210|D211,,I307,
+S109,SQ-1000-065-240,SQ-1000-065-240,Northfield Fitness,400,21.1,400,0,400,0,8440.0,7640.0,0,0.0,-800.0,-800.0,ordinary,price discrepancy,D212,,I308,
+S110,RD-1500-083-288,RD-1500-083-288,Lakeview Racking,120,41.0,120,0,0,0,4920.0,0,0,-4920.0,0,-4920.0,ordinary,missing posted invoice|quantity discrepancy,D213,,,

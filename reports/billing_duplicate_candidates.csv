@@ -1,0 +1,5 @@
+source,so,internal_ref,record_id,candidate_ids,date,reason
+deliveries,S108,RD-1000-065-240,D210,D211,2027-01-13,matching transaction attributes; verify independently
+deliveries,S108,RD-1000-065-240,D211,D210,2027-01-13,matching transaction attributes; verify independently
+invoices,S102,SQ-1000-065-240,I302,I309,2027-01-07,matching transaction attributes; verify independently
+invoices,S102,SQ-1000-065-240,I309,I302,2027-01-15,matching transaction attributes; verify independently
