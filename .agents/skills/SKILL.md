@@ -1,7 +1,8 @@
 ---
 name: erp-audit
 description: Analyze manufacturing ERP CSV data, identify
-  product duplicates, reconcile billing, and verify findings.
+  product duplicates, reconcile billing, and verify findings. Use when updating
+  Python functions or adding audit scripts, shared modules, or tests in this repository.
 ---
 
 # ERP Data Audit
@@ -31,6 +32,9 @@ description: Analyze manufacturing ERP CSV data, identify
 - Do not double-count overlapping financial exposure.
 
 ## Engineering Standards
+
+For Python changes, read [Python maintenance](references/python-maintenance.md) to identify the affected entrypoint, report contract, and tests.
+
 - No hardcoded record IDs in business logic.
 - Use small, readable functions.
 - Validate input schemas and merge cardinality.
